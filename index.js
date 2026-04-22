@@ -7,13 +7,14 @@ import 'dotenv/config'   // mode ESM
 
 import { TestConnection } from "./funcions/database.js";
 
-const { DataTypes } = require("sequelize"); // per no haver de escriure sempre sequelize.datatypes.XXXX
+import { DataTypes } from "sequelize"; // per no haver de escriure sempre sequelize.datatypes.XXXX
 
 // creem objecte sequelize 
 const sequelize = new Sequelize(
+    process.env.DB_SCHEMA,
     process.env.DB_USER,
     process.env.DB_PASS,
-    process.env.DB_SCHEMA,
+
     {
         dialect: process.env.DB_DIALECT,
         host: process.env.DB_HOST,
